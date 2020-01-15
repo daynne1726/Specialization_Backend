@@ -15,26 +15,45 @@
 
 
     function displayMultiArr($multiArray){
-        // foreach($multiArray as $a){
-        //     // if($a == $multiArray["sectionA"]){
-        //     //     foreach($multiArray["sectionA"] as $a){
-        //     //         echo $a . "<br>";
-        //     //     }
-        //     // }elseif($a == $multiArray["sectionB"]){
-        //     //     foreach($multiArray["sectionB"] as $a){
-        //     //         echo $a . "<br>";
-        //     //     }
-        //     // }else{
-        //     //     echo $a . "<br>";
-        //     // }
+        print_r($multiArray);
 
-        //     foreach($a as $b){
-        //         echo $b."<br>";
+        // $key = array_keys($multiArray);
+        // for($i=0;$i<count($multiArray);$i++){
+        //     echo $key[$i]. "<br>";
+        //     foreach($multiArray[$key[$i]] as $keys => $value){
+        //         echo $keys. $value;
+        //         foreach($value as $x => $y){
+        //             echo $x . $y;
+        //         }
         //     }
         // }
-        print_r($multiArray);
         
+// foreach($keys as $key)
+// {
+// echo $key . ":<br>";
+// $another_keys = array_keys($array[$key]);
+// foreach($another_keys as $another_key)
+// {
+// $type = gettype($array[$key][$another_key]);
+// if($type != 'array')
+// {
+// echo($array[$key][$another_key]) . "<br>";
+// }
+// else
+// {
+// $deep_keys = array_keys($array[$key][$another_key]);
+// echo "<br>";
+// echo $another_key . ":<br>";
+// foreach($deep_keys as $deep_key)
+// {
+// echo ($array[$key][$another_key][$deep_key]) ;
+// echo "<br>";
+// }
+// }
+// }
 
+// echo "<br>";
+// } 
     }
     // displayMultiArr();
 
@@ -50,7 +69,7 @@
 
 
     function addData($arr, $data){
-        array_push($arr, $data);
+        return array_push($arr, $data);
         foreach($arr as $value){
             echo $value. " ";
         }

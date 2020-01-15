@@ -7,7 +7,7 @@
 
     $multiArray = ["food"=>["Go", "Grow", "Glow"], 
     "section"=>[
-    "sectionA" => [1 => "daine", "nielle", "consunji", "ydhainne", "elizalde"], 
+    "sectionA" => [1 => "daine", 2 =>"nielle", 3 =>"consunji", 4=>"ydhainne", 5=>"elizalde"], 
     "sectionB" => [1 => "Krystal", "Jhamel", "Jeff", "Wenjan", "Christine"]
     ],
     "Ph_Presidents" => ["Aguinaldo", "Roxas", "Duterte"]
@@ -16,13 +16,13 @@
     echo "Answers: <hr><hr>";
     echo getSum(2,4);
     echo "<hr><hr>";
-    echo displayArr($array);
+    displayArr($array);
     echo "<hr><hr>";
-    echo displayMultiArr($multiArray);
+    displayMultiArr($multiArray);
     echo "<hr><hr>";
-    print_r(createAssociativeArr());
+    (createAssociativeArr());
     echo "<hr><hr>";
     $newArray = addData($newArray, "loathe");
-    print_r($newArray);
+    ($newArray);
  
 ?>
