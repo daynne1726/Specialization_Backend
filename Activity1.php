@@ -47,9 +47,10 @@
                     unset($array[$index]);
                 }
 
-                foreach($array as $x){
-                    echo $x . "<br>";
-                }
+                // foreach($array as $x){
+                //     echo $x . "<br>";
+                // }
+                echo implode("<br>", $array);
 
 
             }
@@ -98,13 +99,16 @@
             function arithmetic(){
                 $val = "A00";
                 for($x=0; $x < 5;$x++){
-                echo ++$val . "<br>";
+                    echo ++$val . "<br>";
+                    
                 }
             }
                 
                 echo "<hr><hr>";
                 echo arithmetic() . "<hr><hr>";
         ?>
+
+        
 
         <?php
 
