@@ -83,24 +83,28 @@ button:hover {
   clear: both;
   display: table;
 }
+p{
+  text-align: center;
+}
 
 </style>
 <body>
-<?php include("insertDb.php");?>
-<form class="form" action="insertDb.php" method="post">
+<?php //include("insertDb.php");?>
+<form class="form" action="insertDB.php" method="post">
   <div class="container">
     <h1>Login</h1>
     <hr>
 
     <label><b>Name</b></label>
-    <input class="input"  type="text" placeholder="Enter Name" name="Name" value="">
+    <input class="input"  type="text" placeholder="Enter Name" required name="Name" value="">
 
     <label><b>Email</b></label>
-    <input class="input"  type="text" placeholder="Enter Email" name="Email" value="">
+    <input class="input"  type="text" placeholder="Enter Email" required name="Email" value="">
 
     <label><b>Password</b></label>
-    <input class="input" type="password" placeholder="Enter Password" name="Password"value="">
-    <input class="submit" name="Login" type="submit" value="Login">
+    <input class="input" type="password" placeholder="Enter Password" required name="Password"value="">
+    <input class="submit" name="signup" type="submit" value="SignUp">
+    <p>Already have an account? <a href='Login.php'>Login</a> </p> 
   </div>
 </form>
 

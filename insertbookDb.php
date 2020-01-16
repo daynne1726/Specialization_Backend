@@ -13,6 +13,7 @@
         $author = $_POST['Author'];
         
         
+        
     // $conn = new mysqli($servername,$username,$password,"pntraining");
     
         if($book != '' || $author != '' ){

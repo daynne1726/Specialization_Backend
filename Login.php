@@ -7,8 +7,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 form{
             border:1px solid black;
             margin-left:30%; 
-            margin-right:30%
-            
+            margin-right:30%;
+            margin-top:10%;
         }
 
 /* Full-width input fields */
@@ -83,6 +83,9 @@ button:hover {
   clear: both;
   display: table;
 }
+p{
+  text-align: center;
+}
 
 /* Change styles for cancel button and signup button on extra small screens */
 /* @media screen and (max-width: 300px) {
@@ -93,9 +96,9 @@ button:hover {
 </style>
 <body>
 
-<?php include ("DashBoard.php");?>
+<?php //include ("DashBoard.php");?>
 
-<form  >
+<form class="form" action="retrieveDb.php" method="post">
   <div class="container">
     <h1>Login</h1>
     <hr>
@@ -105,7 +108,8 @@ button:hover {
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required value ="">
-    <input class="submit" name="Login" type="submit" value="Login"><a href='Dashboard.php'></a>
+    <input class="submit" name="Login" type="submit" value="Login">
+    <p>Don't have an account? <a href='SignUp.php'>Login</a> </p> 
 
 
     
