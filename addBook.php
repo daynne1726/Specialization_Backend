@@ -89,7 +89,7 @@ button:hover {
 <?php //include("insertbookDb.php");?>
 <form class="form" action="insertbookDb.php" method="post">
   <div class="container">
-    <h1>Login</h1>
+    <h1>Book</h1>
     <hr>
 
     <label><b>BOOK</b></label>

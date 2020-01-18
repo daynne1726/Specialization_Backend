@@ -109,7 +109,7 @@ p{
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required value ="">
     <input class="submit" name="Login" type="submit" value="Login">
-    <p>Don't have an account? <a href='SignUp.php'>Login</a> </p> 
+    <p>Don't have an account? <a href='SignUp.php'>SignUp</a> </p> 
 
 
     

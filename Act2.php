@@ -1,4 +1,5 @@
 <?php
+
     
     //For loop
     //divisible by 2
@@ -22,6 +23,7 @@
     for($num=1; $num <=15; $num++){
         if($num % 5 == 0){
             echo "$num ";
+            echo "<hr><hr>";
         }
     }
 

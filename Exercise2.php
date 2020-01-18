@@ -12,4 +12,5 @@ foreach($ceu as $x =>$x_capital){
     echo "The Capital of ".$x." is " . $x_capital.".";
     echo "<br>";
 }
+echo "<hr><hr>";
 ?>

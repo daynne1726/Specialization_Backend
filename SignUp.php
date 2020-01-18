@@ -92,7 +92,7 @@ p{
 <?php //include("insertDb.php");?>
 <form class="form" action="insertDB.php" method="post">
   <div class="container">
-    <h1>Login</h1>
+    <h1>Sign Up</h1>
     <hr>
 
     <label><b>Name</b></label>
