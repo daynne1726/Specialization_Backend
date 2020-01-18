@@ -1,67 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<html>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
 
-         <style>
-        body {
-    /* margin-top:40px;
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFvBdT_B63So-QXx9ROMGyfOKa_pc5ClikjZItfdmu_7aqHjg6&s");
-    background-repeat: no-repeat;
-    background-size: cover; */
+form{
+            border:1px solid black;
+            margin-left:30%; 
+            margin-right:30%
+            
+        }
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
 }
-    </style>
-</head>
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+h1{
+    text-align:center;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+</style>
 <body>
-<link href="form.css" rel="stylesheet">
+<?php //include("insertbookDb.php");?>
+<form class="form" action="updatebookDB.php" method="post">
+  <div class="container">
+    <h1>Book</h1>
+    <hr>
 
-<form style= " margin-left: 20%;margin-right: 20%;margin-top: 5%" class="form" action="updatedAssignment.php" method="post">
-<a href="viewAssignment.php">View Records</a>
-     <?php 
-        $id=$_REQUEST['id'];
-        $link = mysqli_connect("localhost", "root", "", "pntraining");
-        $query = "SELECT * from bookstore where id='".$id."'"; 
-        $result = mysqli_query($link, $query) or die ( mysqli_error());
-        $row = mysqli_fetch_assoc($result);
-    ?>
+    <label><b>BOOK</b></label>
+    <input class="input"  type="text" placeholder="Enter Book Name" name="Book" value="">
 
-    <input type="hidden" name="id" value="<?php echo $_REQUEST['id'];?>">
-
-    <div class="form-group">
-    <label>Subject:</label>
-    <input class="input form-control" name="subject1" type="text" value="<?php echo $row['subject1'];?>">
-    </div>
-
-    <div class="form-group">
-    <label>Topic:</label>
-    <input class="input form-control" name="topic" type="text" value="<?php echo $row['topic'];?>">
-    </div>
-
-    <div class="form-group">
-      <label>Description:</label>
-      <input class="input form-control" name="descript" type="text" value="<?php echo $row['descript'];?>">
+    <label><b>Author</b></label>
+    <input class="input"  type="text" placeholder="Enter Author" name="Author" value="">
+    <input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
+    <div>
+    <input class="submit" name="update" type="submit" value="Update">
     </div>
     
-    <div class="form-group"> 
-      <label>Date Recieved:</label>
-    <input class="input form-control" name="given" type="text" value="<?php echo $row['given'];?>">
-    </div>
-
-    <div class="form-group"> 
-      <label>Date to Submit:</label>
-    <input class="input form-control" name="submission" type="text" value="<?php echo $row['submission'];?>">
-    </div>
-
-
-    <input class="submit btn btn-defaul" name="submit" type="submit" value="Update">
-  </form>
-   
-
-    
+  </div>
 </form>
+
 </body>
 </html>

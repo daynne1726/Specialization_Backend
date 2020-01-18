@@ -75,20 +75,25 @@
     </a>
 
 <?php
-	echo "<link href='form.css' rel='stylesheet'>";
-    $link = mysqli_connect("localhost", "root", "", "pntraining");
+	// echo "<link href='form.css' rel='stylesheet'>";
+  //   $link = mysqli_connect("localhost", "root", "", "pntraining");
    
 	
-	if($link === false){
-		die("ERROR: Could not connect. " . mysqli_connect_error());
-	}
-	$sql = "SELECT * FROM bookstore";
-	$result = mysqli_query($link, $sql);
-	if($result){
-		if(mysqli_num_rows($result) > 0){
-            echo "<col span=2>";
-			while($row = mysqli_fetch_array($result)){
-                $id = $row['id'];
+	// if($link === false){
+	// 	die("ERROR: Could not connect. " . mysqli_connect_error());
+	// }
+	// $sql = "SELECT * FROM bookstore";
+	// $result = mysqli_query($link, $sql);
+	// if($result){
+	// 	if(mysqli_num_rows($result) > 0){
+  //           echo "<col span=2>";
+	// 		while($row = mysqli_fetch_array($result)){
+  //               $id = $row['id'];
+      require_once ("dbFunction.php");
+      $data=new dbFunction();
+      $sql=$data->fetchdata();
+      while($row = mysqli_fetch_array($sql)) {        
+            $id = $row['id'];
             echo"
             <col><center><div style = 'background-color: #e6f0ff; margin-left:30%;margin-right:30%;border-radius: 25px;'>
                     <div padding: 2px 16px;>
@@ -97,24 +102,23 @@
                         <h4>Author</h4>
                         <p>" . $row['book_author'] . "</p> 
                         <hr>
-                    
                         <h1>  Action </h1>
                         <a style = 'background-color:gray;' href='deletebookDB.php ?id=$id'>Delete</a>
-					 <a style = 'background-color:gray; margin-bottom:-1%;' href='updatebookDB.php ? id=$id'>Update</a>
+					 <a style = 'background-color:gray; margin-bottom:-1%;' href='updatebook.php?id=$id'>Update</a>
                     </div>
                 </div></center></col>";      
 					
 			}
-            mysqli_free_result($result);
+            // mysqli_free_result($result);
             
           
-		} else{
-			echo "No records matching your query were found.";
-		}
-	} else{
-		echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-	}
-	mysqli_close($link);
+	// } else{
+	// 		echo "No records matching your query were found.";
+	// 	}
+	// } else{
+	// 	echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+	// }
+	// mysqli_close($link);	
 ?>
 </body>
 </html>

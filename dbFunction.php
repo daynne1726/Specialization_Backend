@@ -1,57 +1,49 @@
-<?php  
-require_once 'dbConnect.php';  
-session_start();  
-    class dbFunction {  
-            
-        function __construct() {  
-              
-            // connecting to database  
-            $db = new DbConnect();;  
-               
-        }  
-        // destructor  
-        function __destruct() {  
-              
-        }  
-        public function UserRegister($name, $email, $password){  
-                // $password = md5($password);  
-                $qr = "INSERT INTO data(Name, Email, Password) values('".$username."','".$emailid."','".$password."')" or die(mysql_error());
-                // $sql = "INSERT INTO data (Name,Email,Password)Values('$name','$userName','$password')";
-                $query= mysqli_query($conn,$sql);
-                header("Location:Login.php");
-                // return $qr;  
-               
-        }  
-        // public function Login($emailid, $password){  
-        //     $res = mysql_query("SELECT * FROM users WHERE emailid = '".$emailid."' AND password = '".md5($password)."'");  
-        //     $user_data = mysql_fetch_array($res);  
-        //     //print_r($user_data);  
-        //     $no_rows = mysql_num_rows($res);  
-              
-        //     if ($no_rows == 1)   
-        //     {  
-           
-        //         $_SESSION['login'] = true;  
-        //         $_SESSION['uid'] = $user_data['id'];  
-        //         $_SESSION['username'] = $user_data['username'];  
-        //         $_SESSION['email'] = $user_data['emailid'];  
-        //         return TRUE;  
-        //     }  
-        //     else  
-        //     {  
-        //         return FALSE;  
-        //     }  
-               
-                   
-        // }  
-        // public function isUserExist($emailid){  
-        //     $qr = mysqli_query"SELECT * FROM data WHERE Email = '".$emailid."'");  
-        //     echo $row = mysqli_num_rows($qr);  
-        //     if($row > 0){  
-        //         return true;  
-        //     } else {  
-        //         return false;  
-        //     }  
-        // }  
-    }  
-?>  
+<?php
+// session_start();
+$databaseHost = 'localhost';
+$databaseName = 'pntraining';
+$databaseUsername = 'root';
+$databasePassword = '';
+class dbFunction{
+    function __construct(){
+        global $databaseHost,$databaseName,$databasePassword,$databaseUsername;
+        $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+        $this->dbh=$mysqli;
+        if (mysqli_connect_errno())
+        {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+
+    }
+    
+    public function insertbook($name,$author)
+        {
+        $res=mysqli_query($this->dbh,"INSERT INTO bookstore(book_name, book_author) VALUES('$name','$author')");
+        return $res;
+        }
+
+    public function fetchdata()
+        {
+        $result=mysqli_query($this->dbh,"select * from bookstore");
+        return $result;
+        }
+
+    public function fetchonerecord($id)
+	{
+        $oneresult=mysqli_query($this->dbh,"select * from bookstore where id=$id");
+        return $oneresult;
+        }
+
+    public function updatebook($name,$author,$id)
+        {
+        $updaterecord=mysqli_query($this->dbh, "UPDATE bookstore SET book_name='$name', book_author='$author', WHERE id=$id");
+        return $updaterecord;
+        }
+
+    // public function delete($id)
+    //     {
+    //     $deleterecord=mysqli_query($this->dbh,"delete from bookstore where id=$id");
+    //     return $deleterecord;
+    //     }
+    }
+    ?>
